@@ -62,9 +62,7 @@
       "id": "cordova-plugin-firebase-messaging.FirebaseMessaging",
       "file": "plugins/cordova-plugin-firebase-messaging/www/FirebaseMessaging.js",
       "pluginId": "cordova-plugin-firebase-messaging",
-      "merges": [
-        "cordova.plugins.firebase.messaging"
-      ]
+      "merges": ["cordova.plugins.firebase.messaging"]
     }
   ],
   "plugin_metadata": {
