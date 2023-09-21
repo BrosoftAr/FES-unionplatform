@@ -7,6 +7,7 @@ class FetchService {
     params: RequestInit = {}
   ): Promise<any> {
     const token = localStorage.getItem("token");
+    console.log(1);
     return new Promise((resolve, reject) => {
       fetch(`${API_URL}${endpoint}`, {
         headers: {
@@ -18,23 +19,21 @@ class FetchService {
       })
         .then((res) => {
           if (res.status === 200 && res.ok) {
-            res.json().then((json) => {
-              resolve(json);
-            });
+            res.json().then((json) => resolve(json));
           } else if (res.status === 401) {
             message.error("Necesitas loguearte para realizar esta acción");
             localStorage.removeItem("token");
-
-            res.json().then((json) => {
-              reject(json);
-            });
+            res.json().then(reject);
           } else {
-            res.json().then((json) => {
-              reject(json);
-            });
+            try {
+              res.json().then((json) => reject(json));
+            } catch {
+              console.log(2);
+              reject({ message: "Request failed" });
+            }
           }
         })
-        .catch(() => {
+        .catch((e) => {
           reject({ message: "Request failed" });
         });
     });

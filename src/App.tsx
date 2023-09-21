@@ -12,7 +12,7 @@ import ProfilePage from "./pages/ProfilePage";
 import "antd/dist/antd.css";
 import NewsArticlePage from "./pages/NewsArticlePage";
 import IncidentsPage from "./pages/IncidentsPage";
-import NewIncidentPage from "./pages/NewIncidentPage";
+import NewIncidentPage from "./pages/NewIncidentPage/NewIncidentPage";
 import UsefulInformationPage from "./pages/UsefulInformationPage";
 import UsefulInfoDetailPage from "./pages/UsefulInfoDetailPage";
 import LoggedInRoute from "./components/LoggedInRoute";
@@ -20,8 +20,10 @@ import ViewIncidentsPage from "./pages/ViewIncidentPage";
 import SignUpEmailSentPage from "./pages/SignUpEmailSentPage";
 import ActivationPage from "./pages/ActivationPage";
 import ResetPage from "./pages/ResetPage";
+import useNotifications from "./hooks/useNotifications";
 
 function App() {
+  useNotifications({ topics: ["new-added"] });
   return (
     <Router>
       <Switch>

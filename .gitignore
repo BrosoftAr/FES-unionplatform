@@ -10,9 +10,13 @@
 
 # production
 /build
+/www/
 
 # misc
 .DS_Store
+.env
+.env.dev
+.env.prod
 .env.local
 .env.development.local
 .env.test.local
@@ -23,3 +27,9 @@ yarn-debug.log*
 yarn-error.log*
 
 .vercel
+
+.DS_Store
+.idea/
+
+google-services.json
+GoogleService-Info.plist
