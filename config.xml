@@ -5,9 +5,15 @@
     <author email="" href="">
         UNION PLATFORM
     </author>
-    <icon src="src/assets/img/logo.png" />
+    <icon src="src/assets/img/appicon.png" />
     <platform name="android">
         <resource-file src="google-services.json" target="app/google-services.json" />
+        <icon background="src/assets/img/appicon_background.png" density="ldpi" foreground="src/assets/img/appicon_foreground.png" />
+        <icon background="src/assets/img/appicon_background.png" density="mdpi" foreground="src/assets/img/appicon_foreground.png" />
+        <icon background="src/assets/img/appicon_background.png" density="hdpi" foreground="src/assets/img/appicon_foreground.png" />
+        <icon background="src/assets/img/appicon_background.png" density="xhdpi" foreground="src/assets/img/appicon_foreground.png" />
+        <icon background="src/assets/img/appicon_background.png" density="xxhdpi" foreground="src/assets/img/appicon_foreground.png" />
+        <icon background="src/assets/img/appicon_background.png" density="xxxhdpi" foreground="src/assets/img/appicon_foreground.png" />
     </platform>
     <platform name="ios">
         <resource-file src="GoogleService-Info.plist" />

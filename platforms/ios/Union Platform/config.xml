@@ -34,7 +34,7 @@
     <author email="" href="">
         UNION PLATFORM
     </author>
-    <icon src="src/assets/img/logo.png" />
+    <icon src="src/assets/img/appicon.png" />
     <content src="index.html" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
