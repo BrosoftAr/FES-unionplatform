@@ -53,7 +53,7 @@ export const suscribeToTopic = (topic) => {
       environment === "production" ? "" : `development-`
     }${appName}-${topic}`;
     subscribe(parsedTopic);
-    console.log("Gaby", parsedTopic);
+    console.log('suscribing', parsedTopic);
   }
 };
 
