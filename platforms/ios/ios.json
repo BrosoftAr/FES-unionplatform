@@ -50,10 +50,10 @@
   "installed_plugins": {
     "cordova-plugin-firebase-messaging": {
       "IOS_FIREBASE_POD_VERSION": "9.3.0",
-      "PACKAGE_NAME": "com.ojoparitario.test"
+      "PACKAGE_NAME": "com.unionplatform.test"
     },
     "cordova-support-android-plugin": {
-      "PACKAGE_NAME": "com.ojoparitario.test"
+      "PACKAGE_NAME": "com.unionplatform.test"
     }
   },
   "dependent_plugins": {},
@@ -62,7 +62,9 @@
       "id": "cordova-plugin-firebase-messaging.FirebaseMessaging",
       "file": "plugins/cordova-plugin-firebase-messaging/www/FirebaseMessaging.js",
       "pluginId": "cordova-plugin-firebase-messaging",
-      "merges": ["cordova.plugins.firebase.messaging"]
+      "merges": [
+        "cordova.plugins.firebase.messaging"
+      ]
     }
   ],
   "plugin_metadata": {

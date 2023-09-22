@@ -51,11 +51,11 @@
   },
   "installed_plugins": {
     "cordova-support-android-plugin": {
-      "PACKAGE_NAME": "com.ojoparitario.test"
+      "PACKAGE_NAME": "com.unionplatform.test"
     },
     "cordova-plugin-firebase-messaging": {
       "ANDROID_FIREBASE_BOM_VERSION": "30.3.1",
-      "PACKAGE_NAME": "com.ojoparitario.test"
+      "PACKAGE_NAME": "com.unionplatform.test"
     }
   },
   "dependent_plugins": {},
