@@ -145,12 +145,13 @@ const NewIncidentPage: React.FC = () => {
     return false;
   };
 
+  const onRemove = (file) => {
+    setFileList(fileList.filter((item) => item.fileKey !== file.fileKey));
+  }
+
   const hasUploadingFileListItem = !!fileList.find(
     (fileListItem) => fileListItem.status === "uploading"
   );
-
-  console.log("fileList", fileList);
-  console.log("hasUploadingFileListItem", hasUploadingFileListItem);
 
   return (
     <PageContainer showHeader>
@@ -225,6 +226,7 @@ const NewIncidentPage: React.FC = () => {
               listType="picture"
               fileList={fileList}
               beforeUpload={onUpload}
+              onRemove={onRemove}
             >
               <AntButton icon={<UploadOutlined />}>Elegir imagen</AntButton>
             </Upload>
