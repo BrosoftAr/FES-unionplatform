@@ -1,0 +1,18 @@
+{
+  "cordova-plugin-firebase-messaging": {
+    "source": {
+      "type": "registry",
+      "id": "cordova-plugin-firebase-messaging@^7.0.4"
+    },
+    "is_top_level": true,
+    "variables": {}
+  },
+  "cordova-support-android-plugin": {
+    "source": {
+      "type": "registry",
+      "id": "cordova-support-android-plugin@~2.0.4"
+    },
+    "is_top_level": false,
+    "variables": {}
+  }
+}
