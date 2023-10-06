@@ -8,6 +8,8 @@ import PageTitle from "../components/PageTitle";
 import ApiEndpoints from "../shared/ApiEndpoints";
 import FetchService from "../shared/FetchService";
 import { User } from "../shared/User";
+import { useHistory } from "react-router-dom";
+import RoutesEnum from "../shared/RoutesEnum";
 
 interface ProfileFormValues {
   name: string;
@@ -21,6 +23,7 @@ interface ProfileFormValues {
 const ProfilePage: React.FC = () => {
   const [user, setUser] = useState<User>();
   const [isLoading, setIsLoading] = useState(true);
+  const history = useHistory();
 
   const fetchUser = async () => {
     setIsLoading(true);
@@ -59,6 +62,24 @@ const ProfilePage: React.FC = () => {
       form.resetFields();
       message.success("Perfil actualizado");
       fetchUser();
+    } catch (e) {
+      message.error(JSON.stringify(e));
+    } finally {
+      setIsSending(false);
+    }
+  };
+
+  const deleteAccount = async () => {
+    setIsSending(true);
+    try {
+      await FetchService.request(ApiEndpoints.USERS_DELETE_ACCOUNT, {
+        body: JSON.stringify({}),
+      });
+
+      form.resetFields();
+      message.success("La cuenta ha sido eliminada exitosamente");
+      localStorage.removeItem("token");
+      history.push(RoutesEnum.LOGIN);
     } catch (e) {
       message.error(JSON.stringify(e));
     } finally {
@@ -131,6 +152,14 @@ const ProfilePage: React.FC = () => {
 
           <Button submit disabled={isSending} loading={isSending}>
             Guardar
+          </Button>
+          <Button
+            style={{ background: "#FF4141", marginTop: 15 }}
+            onClick={() => deleteAccount()}
+            disabled={isSending}
+            loading={isSending}
+          >
+            Eliminar cuenta
           </Button>
         </Form>
       </ContentContainer>
