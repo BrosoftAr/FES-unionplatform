@@ -10,6 +10,7 @@ import FetchService from "../shared/FetchService";
 import { User } from "../shared/User";
 import { useHistory } from "react-router-dom";
 import RoutesEnum from "../shared/RoutesEnum";
+import { Modal } from "antd";
 
 interface ProfileFormValues {
   name: string;
@@ -24,6 +25,7 @@ const ProfilePage: React.FC = () => {
   const [user, setUser] = useState<User>();
   const [isLoading, setIsLoading] = useState(true);
   const history = useHistory();
+  const { confirm } = Modal;
 
   const fetchUser = async () => {
     setIsLoading(true);
@@ -70,12 +72,12 @@ const ProfilePage: React.FC = () => {
   };
 
   const deleteAccount = async () => {
-    setIsSending(true);
+    message.loading("Eliminando cuenta de usuario...");
     try {
+      setIsSending(true);
       await FetchService.request(ApiEndpoints.USERS_DELETE_ACCOUNT, {
         body: JSON.stringify({}),
       });
-
       form.resetFields();
       message.success("La cuenta ha sido eliminada exitosamente");
       localStorage.removeItem("token");
@@ -85,6 +87,19 @@ const ProfilePage: React.FC = () => {
     } finally {
       setIsSending(false);
     }
+  };
+
+  const showDeleteConfirm = () => {
+    confirm({
+      title: "¿Estás seguro de eliminar la cuenta?",
+      content: "La cuenta se eliminará de manera permanente",
+      okText: "Sí",
+      okType: "danger",
+      cancelText: "No",
+      onOk() {
+        deleteAccount();
+      },
+    });
   };
 
   if (isLoading) {
@@ -155,7 +170,7 @@ const ProfilePage: React.FC = () => {
           </Button>
           <Button
             style={{ background: "#FF4141", marginTop: 15 }}
-            onClick={() => deleteAccount()}
+            onClick={() => showDeleteConfirm()}
             disabled={isSending}
             loading={isSending}
           >
